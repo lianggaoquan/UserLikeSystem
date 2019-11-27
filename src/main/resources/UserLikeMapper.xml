@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mapper.UserLikeMapper">
+    <insert id="insertUserLike" parameterType="UserLike">
+        insert into user_like (liked_user_id, liked_post_id, status)
+        values (#{likedUserId},#{likedPostId},#{status});
+    </insert>
+
+    <select id="getByLikedUserIdAndLikedPostId" resultType="UserLike">
+        select * from user_like where liked_user_id=#{likedUserId} and liked_post_id=#{likedPostId};
+    </select>
+</mapper>
